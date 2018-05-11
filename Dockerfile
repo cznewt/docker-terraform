@@ -7,7 +7,7 @@ RUN apk add --update git wget openssh unzip
 
 # Install Azure provider
 RUN mkdir -p /go/src/github.com/terraform-providers && \
-    git clone --depth 1 -b v1.3.3 https://github.com/fpytloun/terraform-provider-azurerm.git /go/src/github.com/terraform-providers/terraform-provider-azurerm && \
+    git clone --depth 1 -b v1.4.0 https://github.com/terraform-providers/terraform-provider-azurerm.git /go/src/github.com/terraform-providers/terraform-provider-azurerm && \
     cd /go/src/github.com/terraform-providers/terraform-provider-azurerm && go build && go install && \
     rm -rf /go/src/github.com/terraform-providers/terraform-provider-azurerm
 
