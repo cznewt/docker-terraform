@@ -5,6 +5,13 @@ ENV GOPATH=/go
 # Install build dependencies
 RUN apk add --update git wget openssh unzip
 
+# Install Azure CLI
+RUN apk update && \
+    apk add bash py-pip && \
+    apk add --virtual=build gcc libffi-dev musl-dev openssl-dev python-dev make && \
+    pip install azure-cli && \
+    apk del --purge build
+
 # Install Azure provider
 RUN mkdir -p /go/src/github.com/terraform-providers && \
     git clone --depth 1 -b v1.4.0 https://github.com/terraform-providers/terraform-provider-azurerm.git /go/src/github.com/terraform-providers/terraform-provider-azurerm && \
