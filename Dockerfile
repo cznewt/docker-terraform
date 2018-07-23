@@ -14,7 +14,7 @@ RUN apk update && \
 
 # Install Azure provider
 RUN mkdir -p /go/src/github.com/terraform-providers && \
-    git clone --depth 1 -b v1.4.0 https://github.com/terraform-providers/terraform-provider-azurerm.git /go/src/github.com/terraform-providers/terraform-provider-azurerm && \
+    git clone --depth 1 -b containerservices-advancednetworking https://github.com/cznewt/terraform-provider-azurerm.git /go/src/github.com/terraform-providers/terraform-provider-azurerm && \
     cd /go/src/github.com/terraform-providers/terraform-provider-azurerm && go build && go install && \
     rm -rf /go/src/github.com/terraform-providers/terraform-provider-azurerm
 
